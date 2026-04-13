@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS resenas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pelicula_id INT NOT NULL,
+  autor VARCHAR(100) NOT NULL,
+  calificacion INT NOT NULL CHECK (calificacion BETWEEN 1 AND 5),
+  comentario TEXT,
+  fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (pelicula_id) REFERENCES peliculas(id) ON DELETE CASCADE
+);

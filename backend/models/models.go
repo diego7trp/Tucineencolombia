@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 // ── Modelos existentes ──────────────────────────────
 
 type DondeVer struct {
@@ -66,4 +68,13 @@ type PeliculaTMDB struct {
 	FechaEstreno string           `json:"fecha_estreno"`
 	Calificacion float64          `json:"calificacion"`
 	Cines        []CineDisponible `json:"cines"`
+}
+
+type Resena struct {
+	ID           int       `json:"id"`
+	PeliculaID   int       `json:"pelicula_id"`
+	Autor        string    `json:"autor"`
+	Calificacion int       `json:"calificacion"`
+	Comentario   string    `json:"comentario"`
+	Fecha        time.Time `json:"fecha"`
 }
