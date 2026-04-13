@@ -244,3 +244,21 @@ img { max-width: 100%; display: block; }
   height: 30px;
   background: rgba(201,168,76,.2);
 }
+/* ── Reseñas ─────────────────────────────── */
+.resenas-box { margin-top: 2rem; background: var(--card-bg); border: .5px solid rgba(255,255,255,.06); border-radius: 10px; padding: 1rem; }
+.resenas-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.resenas-header h3 { font-size: 16px; }
+.resenas-header p { font-size: 12px; color: var(--muted); }
+.resena-form { display: grid; gap: .8rem; margin-bottom: 1rem; }
+.resena-form input,
+.resena-form textarea { width: 100%; background: var(--surface); border: .5px solid rgba(255,255,255,.1); color: var(--text); padding: .7rem; border-radius: 6px; font-family: 'Lato', sans-serif; }
+.stars-picker { display: flex; gap: .4rem; }
+.star-btn { background: transparent; border: none; color: #555; font-size: 24px; cursor: pointer; line-height: 1; }
+.star-btn.active { color: var(--gold); }
+.resena-error { padding: 0; text-align: left; }
+.resenas-list { display: grid; gap: .7rem; }
+.resena-item { border: .5px solid rgba(255,255,255,.08); border-radius: 8px; padding: .8rem; background: #0f0f16; }
+.resena-item header { display: flex; justify-content: space-between; align-items: center; margin-bottom: .4rem; }
+.resena-item header span { color: var(--gold); font-size: 13px; }
+.resena-item p { color: rgba(240,237,230,.85); font-size: 13px; line-height: 1.6; margin-bottom: .5rem; }
+.resena-delete { border: none; background: transparent; color: #e27272; cursor: pointer; font-size: 12px; }

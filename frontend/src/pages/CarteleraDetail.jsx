@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
 import { useApi } from '../hooks/useApi'
 import { getDetalleTMDB } from '../services/api'
+import ReviewsSection from '../components/ReviewsSection'
 
 export default function CarteleraDetail() {
   const { id } = useParams()
@@ -97,6 +98,8 @@ export default function CarteleraDetail() {
             </div>
           </div>
         )}
+
+        <ReviewsSection itemId={id} itemTipo="pelicula" origen="tmdb" />
       </div>
     </div>
   )
