@@ -16,11 +16,15 @@ func main() {
 
 	r.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"http://localhost:5173"},
-		AllowMethods: []string{"GET"},
+		AllowMethods: []string{"GET", "POST", "DELETE", "OPTIONS"},
 	}))
 
 	r.GET("/peliculas", handlers.GetPeliculas)
 	r.GET("/peliculas/:id", handlers.GetPeliculaByID)
+
+	r.GET("/peliculas/:id/resenas", handlers.GetResenasByPelicula)
+	r.POST("/peliculas/:id/resenas", handlers.CreateResena)
+	r.DELETE("/resenas/:id", handlers.DeleteResena)
 	r.GET("/estrenos", handlers.GetEstrenos)
 	r.GET("/noticias", handlers.GetNoticias)
 	r.GET("/festivales", handlers.GetFestivales)
