@@ -11,8 +11,25 @@ export const getStreaming = () => API.get('/streaming')
 export const getCartelera = () => API.get('/cartelera')
 export const getDetalleTMDB = (id) => API.get(`/cartelera/${id}`)
 
-export const getResenas = ({ itemId, itemTipo = 'pelicula', origen = 'local' }) =>
-  API.get('/resenas', { params: { item_id: itemId, item_tipo: itemTipo, origen } })
+// Firma nueva: getResenas({ itemId, itemTipo, origen })
+// Compatibilidad antigua: getResenas(peliculaId)
+export const getResenas = (input) => {
+  if (typeof input === 'object' && input !== null) {
+    const { itemId, itemTipo = 'pelicula', origen = 'local' } = input
+    return API.get('/resenas', { params: { item_id: itemId, item_tipo: itemTipo, origen } })
+  }
 
-export const createResena = (payload) => API.post('/resenas', payload)
+  return API.get(`/peliculas/${input}/resenas`)
+}
+
+// Firma nueva: createResena({ item_id, item_tipo, origen, ... })
+// Compatibilidad antigua: createResena(peliculaId, payload)
+export const createResena = (input, payload) => {
+  if (payload) {
+    return API.post(`/peliculas/${input}/resenas`, payload)
+  }
+
+  return API.post('/resenas', input)
+}
+
 export const deleteResena = (resenaId) => API.delete(`/resenas/${resenaId}`)
